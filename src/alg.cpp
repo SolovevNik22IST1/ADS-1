@@ -48,6 +48,7 @@ int value;
           if (value % i == 0)
             break;
       a=i;
+      break;
     }
     printf("%d", a);
 }
