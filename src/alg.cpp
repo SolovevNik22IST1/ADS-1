@@ -23,7 +23,7 @@ uint64_t nPrime(uint64_t n) {
 
 uint64_t nextPrime(uint64_t value) {
   uint64_t a = value + 1;
-  while (checkPrime(a) != true) {
+  while (!checkPrime(a)) {
     a++;
   }
   return a;
@@ -32,7 +32,7 @@ uint64_t nextPrime(uint64_t value) {
 uint64_t sumPrime(uint64_t hbound) {
   uint64_t a, sum;
   sum = 0;
-  for (a = 1; a < hbound; a++) {
+  for (a = 2; a < hbound; a++) {
     if (checkPrime(a))
       sum += a;
   }
