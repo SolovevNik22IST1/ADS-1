@@ -4,14 +4,10 @@
 
 
 bool checkPrime(uint64_t value) {
-   if (value > 1) {
-      for (uint64_t i = 2; i < value; i++)
-          if (value % i == 0)
-            return false;
-          return true;
-   }
-   else
-     return false;
+  for (uint64_t i = 2; i < value; i++)
+    if (value % i == 0)
+      return false;
+  return true;
 }
 
 uint64_t nPrime(uint64_t n) {
@@ -22,9 +18,8 @@ uint64_t nPrime(uint64_t n) {
     if (checkPrime(a))
       c++;
   }
-  return a;    
+  return a;
 }
-
 
 uint64_t nextPrime(uint64_t value) {
   uint64_t a = value + 1;
