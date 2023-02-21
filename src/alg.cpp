@@ -4,61 +4,42 @@
 
 
 bool checkPrime(uint64_t value) {
-    if (n > 1)
-    {
-      for (int i = 2; i < n; i++)
-          if (n % i == 0)
-              return false;
+   if (value > 1) {
+      for (uint64_t i = 2; i < value; i++)
+          if (value % i == 0)
+            return false;
           return true;
-    }
-    else
-        return false;
+   }
+   else
+     return false;
 }
 
 uint64_t nPrime(uint64_t n) {
-    int  j, a, N;
- 
-    printf("Input N: ");
-    scanf("%d", &N);
- 
-    a = 0;
-    for (int p = 2;; p++)  {
-        for (j = 2; j*j <= p; j++)    {
-            if ((p % j) == 0)   break;
-            if (j*j > p)   {
-                a++;
-                if (a == N)    {
-                    printf("%d", p);
-                    break;
-                }
-            }
-        }
-    }
-    system("Pause");
-    return 0;
+  uint64_t a = 2;
+  uint64_t c = 1;
+  while (c != n) {
+    a++;
+    if (checkPrime(a))
+      c++;
+  }
+  return a;    
 }
 
+
 uint64_t nextPrime(uint64_t value) {
-int value;
-  int a;
-  printf("Input value");
-  scanf("%d", &value);
-  while(True){
-    for (int i = value; i <value*value; i++){
-          if (value % i == 0)
-            break;
-      a=i;
-      break;
-    }
-    printf("%d", a);
+  uint64_t a = value + 1;
+  while (checkPrime(a) != true) {
+    a++;
+  }
+  return a;
 }
 
 uint64_t sumPrime(uint64_t hbound) {
-  int end, sum;
-  printf("Input end number");
-  scanf("%d", &end);
-  for (int i = 0; i < end; i++){
-    sum+=i;
+  uint64_t a, sum;
+  sum = 0;
+  for (a = 1; a < hbound; a++) {
+    if (checkPrime(a))
+      sum += a;
   }
-  printf("%d", sum);
+  return sum;
 }
